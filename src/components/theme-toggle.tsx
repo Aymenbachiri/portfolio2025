@@ -12,9 +12,21 @@ export function ThemeToggle(): JSX.Element | null {
 
   if (!mounted) return null;
 
+  const toggle = () => {
+    const next = theme === "dark" ? "light" : "dark";
+
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        setTheme(next);
+      });
+    } else {
+      setTheme(next);
+    }
+  };
+
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={toggle}
       className="cursor-pointer rounded-full p-2 transition-transform hover:scale-110"
       aria-label="Toggle theme"
     >
