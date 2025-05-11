@@ -8,6 +8,14 @@ import TailwindCSS from "@/lib/icons/tailwind-icon";
 import ReactIcon from "@/lib/icons/react-icon";
 import Nextjs from "@/lib/icons/next-icon";
 import Expo from "@/lib/icons/expo-icon";
+import Shadcnui from "@/lib/icons/shadcnui-icon";
+import { MaterialTailwindIcon } from "@/lib/icons/material-tailwind-icon";
+import MaterialUI from "@/lib/icons/material-ui-icon";
+import DaisyUI from "@/lib/icons/daisyui-icon";
+import ChakraUI from "@/lib/icons/chakraui-icon";
+import Nodejs from "@/lib/icons/node-icon";
+import Expressjs from "@/lib/icons/express-icon";
+import { DotnetcoreIcon } from "@/lib/icons/dotnetcore-icon";
 
 export type Skill = {
   name: string;
@@ -37,15 +45,24 @@ export const skillsData: Skill[] = [
   { name: "Next.js", logo: <Nextjs />, category: "frontend" },
   { name: "React Native", logo: <ReactIcon />, category: "frontend" },
   { name: "Expo", logo: <Expo />, category: "frontend" },
-  { name: "ShadcnUi", logo: "", category: "frontend" },
-  { name: "Material Tailwind", logo: "", category: "frontend" },
-  { name: "Daisy UI", logo: "", category: "frontend" },
-  { name: "Chakra UI", logo: "", category: "frontend" },
+  { name: "ShadcnUi", logo: <Shadcnui />, category: "frontend" },
+  {
+    name: "Material Tailwind",
+    logo: <MaterialTailwindIcon />,
+    category: "frontend",
+  },
+  {
+    name: "Material UI",
+    logo: <MaterialUI />,
+    category: "frontend",
+  },
+  { name: "Daisy UI", logo: <DaisyUI />, category: "frontend" },
+  { name: "Chakra UI", logo: <ChakraUI />, category: "frontend" },
 
   // Backend
-  { name: "Node.js", logo: "", category: "backend" },
-  { name: "Express.js", logo: "", category: "backend" },
-  { name: "ASP.NET Core", logo: "", category: "backend" },
+  { name: "Node.js", logo: <Nodejs />, category: "backend" },
+  { name: "Express.js", logo: <Expressjs />, category: "backend" },
+  { name: "ASP.NET Core", logo: <DotnetcoreIcon />, category: "backend" },
   { name: "mongoose", logo: "", category: "backend" },
   { name: "Entity Framework", logo: "", category: "backend" },
   { name: "Postman", logo: "", category: "backend" },

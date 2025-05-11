@@ -89,7 +89,10 @@ export function Skills(): JSX.Element {
                   className={cn(
                     "mb-3 text-4xl",
                     skill.name === "Expo"
-                      ? "dark:brightness-0 dark:invert"
+                      ? "dark:brightness-200 dark:invert"
+                      : "",
+                    skill.name === "ShadcnUi"
+                      ? "text-black dark:text-white"
                       : "",
                   )}
                 >
