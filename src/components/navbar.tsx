@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { useNavbar } from "@/lib/hooks/useNavbar";
+import { cn } from "@/lib/utils/utils";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -37,11 +38,12 @@ export function Navbar(): JSX.Element {
 
   return (
     <motion.header
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+      className={cn(
+        "fixed top-0 right-0 left-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/80 shadow-md backdrop-blur-md"
-          : "bg-transparent"
-      }`}
+          ? "bg-black/5 shadow-md shadow-gray-600 backdrop-blur-md duration-300 dark:bg-white/10 dark:drop-shadow-gray-100"
+          : "bg-transparent",
+      )}
       initial="hidden"
       animate="visible"
       variants={navbarVariants}
