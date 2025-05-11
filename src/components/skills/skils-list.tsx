@@ -35,6 +35,15 @@ import GitHub from "@/lib/icons/github-icon";
 import NPM from "@/lib/icons/npm-icon";
 import Bun from "@/lib/icons/bun-icon";
 import VisualStudio from "@/lib/icons/visualstudio-icon";
+import Docker from "@/lib/icons/docker-icon";
+import Prisma from "@/lib/icons/prisma-icon";
+import JWT from "@/lib/icons/jwt-icon";
+import { NextAuthIcon } from "@/lib/icons/nextauth-icon";
+import Clerk from "@/lib/icons/clerk-icon";
+import { KindeIcon } from "@/lib/icons/kinde-icon";
+import Auth0 from "@/lib/icons/auth0-icon";
+import BetterAuth from "@/lib/icons/betterauth-icon";
+import { ReactHookFormIcon } from "@/lib/icons/reacthookform-icon";
 
 export type Skill = {
   name: string;
@@ -117,19 +126,27 @@ export const skillsData: Skill[] = [
   { name: "GitHub", logo: <GitHub />, category: "tools & libraries" },
   { name: "npm", logo: <NPM />, category: "tools & libraries" },
   { name: "bun", logo: <Bun />, category: "tools & libraries" },
-  { name: "Docker", logo: "", category: "tools & libraries" },
-  { name: "prisma", logo: "", category: "tools & libraries" },
-  { name: "firebase admin", logo: "", category: "tools & libraries" },
+  { name: "Docker", logo: <Docker />, category: "tools & libraries" },
+  { name: "prisma", logo: <Prisma />, category: "tools & libraries" },
+  { name: "firebase admin", logo: <Firebase />, category: "tools & libraries" },
   { name: "RestAPI", logo: "", category: "tools & libraries" },
-  { name: "jwt", logo: "", category: "tools & libraries" },
+  { name: "jwt", logo: <JWT />, category: "tools & libraries" },
   { name: "bcryptjs", logo: "", category: "tools & libraries" },
   { name: "bcrypt ts", logo: "", category: "tools & libraries" },
-  { name: "NextAuth (auth.js)", logo: "", category: "tools & libraries" },
-  { name: "Clerk", logo: "", category: "tools & libraries" },
-  { name: "Kinde", logo: "", category: "tools & libraries" },
-  { name: "Auth0", logo: "", category: "tools & libraries" },
-  { name: "better auth", logo: "", category: "tools & libraries" },
-  { name: "React Hook Form", logo: "", category: "tools & libraries" },
+  {
+    name: "NextAuth (auth.js)",
+    logo: <NextAuthIcon />,
+    category: "tools & libraries",
+  },
+  { name: "Clerk", logo: <Clerk />, category: "tools & libraries" },
+  { name: "Kinde", logo: <KindeIcon />, category: "tools & libraries" },
+  { name: "Auth0", logo: <Auth0 />, category: "tools & libraries" },
+  { name: "better auth", logo: <BetterAuth />, category: "tools & libraries" },
+  {
+    name: "React Hook Form",
+    logo: <ReactHookFormIcon />,
+    category: "tools & libraries",
+  },
   { name: "Formik", logo: "", category: "tools & libraries" },
   { name: "Yup", logo: "", category: "tools & libraries" },
   { name: "zod", logo: "", category: "tools & libraries" },
