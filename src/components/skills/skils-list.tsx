@@ -65,6 +65,7 @@ import { GorhomBottomSheetIcon } from "@/lib/icons/gorhom_bottomsheet-icon";
 import AmazonWebServices from "@/lib/icons/s3-icon";
 import { RecaptchaIcon } from "@/lib/icons/recaptcha-icon";
 import { ReactNativePaperIcon } from "@/lib/icons/reactnativepaper-icon";
+import { MapboxIcon } from "@/lib/icons/mapbox-icon";
 
 export type Skill = {
   name: string;
@@ -269,7 +270,7 @@ export const skillsData: Skill[] = [
     category: "tools & libraries",
   },
   { name: "expo secure storage", logo: "", category: "tools & libraries" },
-  { name: "mapbox", logo: "", category: "tools & libraries" },
+  { name: "mapbox", logo: <MapboxIcon />, category: "tools & libraries" },
   { name: "react day picker", logo: "", category: "tools & libraries" },
   { name: "nanoid", logo: "", category: "tools & libraries" },
   { name: "uuid", logo: "", category: "tools & libraries" },
