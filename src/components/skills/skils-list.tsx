@@ -53,6 +53,7 @@ import Socketio from "@/lib/icons/socket-icon";
 import Motion from "@/lib/icons/motion-icon";
 import { ReanimatedIcon } from "@/lib/icons/reanimated-icon";
 import { TailwindMergeIcon } from "@/lib/icons/tailwind_merge-icon";
+import { AxisoIcon } from "@/lib/icons/axios-icon";
 
 export type Skill = {
   name: string;
@@ -189,7 +190,7 @@ export const skillsData: Skill[] = [
     category: "tools & libraries",
   },
   { name: "next-themes", logo: "", category: "tools & libraries" },
-  { name: "axios", logo: "", category: "tools & libraries" },
+  { name: "axios", logo: <AxisoIcon />, category: "tools & libraries" },
   { name: "SWR", logo: "", category: "tools & libraries" },
   { name: "lenis scroll", logo: "", category: "tools & libraries" },
   { name: "react-hot-toast", logo: "", category: "tools & libraries" },
