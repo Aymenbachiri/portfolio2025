@@ -54,6 +54,17 @@ import Motion from "@/lib/icons/motion-icon";
 import { ReanimatedIcon } from "@/lib/icons/reanimated-icon";
 import { TailwindMergeIcon } from "@/lib/icons/tailwind_merge-icon";
 import { AxisoIcon } from "@/lib/icons/axios-icon";
+import SWR from "@/lib/icons/swr-icon";
+import { LenisIcon } from "@/lib/icons/lenis-icon";
+import { ReactHotToastIcon } from "@/lib/icons/reacthottoast-icon";
+import Resend from "@/lib/icons/resend-icon";
+import { ReactNavigationIcon } from "@/lib/icons/react_navigation-icon";
+import { RechartsIcon } from "@/lib/icons/recharts-icon";
+import { NativeWindIcon } from "@/lib/icons/nativewind-icon";
+import { GorhomBottomSheetIcon } from "@/lib/icons/gorhom_bottomsheet-icon";
+import AmazonWebServices from "@/lib/icons/s3-icon";
+import { RecaptchaIcon } from "@/lib/icons/recaptcha-icon";
+import { ReactNativePaperIcon } from "@/lib/icons/reactnativepaper-icon";
 
 export type Skill = {
   name: string;
@@ -191,9 +202,13 @@ export const skillsData: Skill[] = [
   },
   { name: "next-themes", logo: "", category: "tools & libraries" },
   { name: "axios", logo: <AxisoIcon />, category: "tools & libraries" },
-  { name: "SWR", logo: "", category: "tools & libraries" },
-  { name: "lenis scroll", logo: "", category: "tools & libraries" },
-  { name: "react-hot-toast", logo: "", category: "tools & libraries" },
+  { name: "SWR", logo: <SWR />, category: "tools & libraries" },
+  { name: "lenis scroll", logo: <LenisIcon />, category: "tools & libraries" },
+  {
+    name: "react-hot-toast",
+    logo: <ReactHotToastIcon />,
+    category: "tools & libraries",
+  },
   { name: "sonner", logo: "", category: "tools & libraries" },
   { name: "react-toastify", logo: "", category: "tools & libraries" },
   {
@@ -201,26 +216,46 @@ export const skillsData: Skill[] = [
     logo: "",
     category: "tools & libraries",
   },
-  { name: "resend", logo: "", category: "tools & libraries" },
+  { name: "resend", logo: <Resend />, category: "tools & libraries" },
   { name: "nextjs-toploader", logo: "", category: "tools & libraries" },
   { name: "Expo router", logo: "", category: "tools & libraries" },
-  { name: "react navigation", logo: "", category: "tools & libraries" },
-  { name: "NativeWind", logo: "", category: "tools & libraries" },
+  {
+    name: "react navigation",
+    logo: <ReactNavigationIcon />,
+    category: "tools & libraries",
+  },
+  {
+    name: "NativeWind",
+    logo: <NativeWindIcon />,
+    category: "tools & libraries",
+  },
   {
     name: "react-native-responsive-screen",
     logo: "",
     category: "tools & libraries",
   },
-  { name: "recharts", logo: "", category: "tools & libraries" },
-  { name: "gorhom bottom sheet", logo: "", category: "tools & libraries" },
+  { name: "recharts", logo: <RechartsIcon />, category: "tools & libraries" },
+  {
+    name: "gorhom bottom sheet",
+    logo: <GorhomBottomSheetIcon />,
+    category: "tools & libraries",
+  },
   { name: "react audio visualize", logo: "", category: "tools & libraries" },
   { name: "react native swiper", logo: "", category: "tools & libraries" },
   { name: "react native calendar", logo: "", category: "tools & libraries" },
   { name: "Edgestore", logo: "", category: "tools & libraries" },
-  { name: "s3", logo: "", category: "tools & libraries" },
+  { name: "s3", logo: <AmazonWebServices />, category: "tools & libraries" },
   { name: "react-select", logo: "", category: "tools & libraries" },
-  { name: "react google recaptcha", logo: "", category: "tools & libraries" },
-  { name: "react native paper", logo: "", category: "tools & libraries" },
+  {
+    name: "react google recaptcha",
+    logo: <RecaptchaIcon />,
+    category: "tools & libraries",
+  },
+  {
+    name: "react native paper",
+    logo: <ReactNativePaperIcon />,
+    category: "tools & libraries",
+  },
   { name: "react native picker", logo: "", category: "tools & libraries" },
   { name: "expo web browser", logo: "", category: "tools & libraries" },
   {
