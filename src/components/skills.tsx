@@ -56,8 +56,8 @@ export function Skills(): JSX.Element {
                 className={cn(
                   "cursor-pointer rounded-full px-4 py-2 text-sm transition-colors",
                   selectedCategory === category.id
-                    ? "text-primary-foreground"
-                    : "text-secondary-foreground",
+                    ? "text-gray-400"
+                    : "text-black dark:text-white",
                 )}
               >
                 {category.name}
@@ -72,7 +72,6 @@ export function Skills(): JSX.Element {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, staggerChildren: 0.1 }}
           viewport={{ once: true }}
-          key={`page-${currentPage}-${selectedCategory}-${searchTerm}`}
         >
           {currentSkills.length > 0 ? (
             currentSkills.map((skill, index) => (
@@ -129,7 +128,7 @@ export function Skills(): JSX.Element {
                     className={cn(
                       "flex h-8 w-8 cursor-pointer items-center justify-center rounded-md text-sm transition-colors",
                       currentPage === page
-                        ? "bg-primary text-primary-foreground font-semibold shadow"
+                        ? "bg-primary text-primary-foreground font-semibold shadow dark:bg-gray-300 dark:text-gray-800"
                         : "text-secondary-foreground hover:bg-muted bg-transparent",
                     )}
                   >
