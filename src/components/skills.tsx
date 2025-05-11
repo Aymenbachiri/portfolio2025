@@ -36,8 +36,8 @@ export function Skills(): JSX.Element {
           <div className="mx-auto h-1 w-20"></div>
         </motion.div>
 
-        <div className="mx-auto mb-10 max-w-xl">
-          <div className="relative">
+        <div className="mx-auto mb-10">
+          <div className="relative mx-auto max-w-xl">
             <Search className="text-muted-foreground absolute top-1/2 left-3 -translate-y-1/2 transform" />
             <input
               type="text"
@@ -85,7 +85,16 @@ export function Skills(): JSX.Element {
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col items-center rounded-lg p-6 text-center shadow-md dark:shadow-md dark:shadow-gray-100"
               >
-                <div className="mb-3 text-4xl">{skill.logo}</div>
+                <div
+                  className={cn(
+                    "mb-3 text-4xl",
+                    skill.name === "Expo"
+                      ? "dark:brightness-0 dark:invert"
+                      : "",
+                  )}
+                >
+                  {skill.logo}
+                </div>
                 <h3 className="font-medium">{skill.name}</h3>
               </motion.div>
             ))

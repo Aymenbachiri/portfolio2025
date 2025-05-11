@@ -1,13 +1,19 @@
 export type Category = {
-  id: "all" | "frontend" | "backend" | "database" | "tools" | "mobile";
+  id:
+    | "all"
+    | "programming languages"
+    | "frontend"
+    | "backend"
+    | "databases"
+    | "tools & libraries";
   name: string;
 };
 
 export const categories: Category[] = [
   { id: "all", name: "All" },
+  { id: "programming languages", name: "Programming Languages" },
   { id: "frontend", name: "Frontend" },
   { id: "backend", name: "Backend" },
-  { id: "database", name: "Database" },
-  { id: "tools", name: "Tools" },
-  { id: "mobile", name: "Mobile" },
+  { id: "databases", name: "Databases" },
+  { id: "tools & libraries", name: "Tools & Libraries" },
 ];
