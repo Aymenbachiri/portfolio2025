@@ -44,6 +44,15 @@ import { KindeIcon } from "@/lib/icons/kinde-icon";
 import Auth0 from "@/lib/icons/auth0-icon";
 import BetterAuth from "@/lib/icons/betterauth-icon";
 import { ReactHookFormIcon } from "@/lib/icons/reacthookform-icon";
+import Zod from "@/lib/icons/zod-icon";
+import Redux from "@/lib/icons/redux-icon";
+import { JotaiICon } from "@/lib/icons/jotai-icon";
+import { NextIntlIcon } from "@/lib/icons/next_intl-icon";
+import { ExpoLocalizationIcon } from "@/lib/icons/expo_localization-icon";
+import Socketio from "@/lib/icons/socket-icon";
+import Motion from "@/lib/icons/motion-icon";
+import { ReanimatedIcon } from "@/lib/icons/reanimated-icon";
+import { TailwindMergeIcon } from "@/lib/icons/tailwind_merge-icon";
 
 export type Skill = {
   name: string;
@@ -149,24 +158,36 @@ export const skillsData: Skill[] = [
   },
   { name: "Formik", logo: "", category: "tools & libraries" },
   { name: "Yup", logo: "", category: "tools & libraries" },
-  { name: "zod", logo: "", category: "tools & libraries" },
-  { name: "Redux Toolkit", logo: "", category: "tools & libraries" },
-  { name: "Redux Persist", logo: "", category: "tools & libraries" },
-  { name: "jotai", logo: "", category: "tools & libraries" },
+  { name: "zod", logo: <Zod />, category: "tools & libraries" },
+  { name: "Redux Toolkit", logo: <Redux />, category: "tools & libraries" },
+  { name: "Redux Persist", logo: <Redux />, category: "tools & libraries" },
+  { name: "jotai", logo: <JotaiICon />, category: "tools & libraries" },
   { name: "Context API", logo: "", category: "tools & libraries" },
   { name: "react-helmet", logo: "", category: "tools & libraries" },
   { name: "helmet.js", logo: "", category: "tools & libraries" },
   { name: "seo", logo: "", category: "tools & libraries" },
   { name: "next-seo", logo: "", category: "tools & libraries" },
-  { name: "next-intl", logo: "", category: "tools & libraries" },
-  { name: "expo localization", logo: "", category: "tools & libraries" },
+  { name: "next-intl", logo: <NextIntlIcon />, category: "tools & libraries" },
+  {
+    name: "expo localization",
+    logo: <ExpoLocalizationIcon />,
+    category: "tools & libraries",
+  },
   { name: "react i18next", logo: "", category: "tools & libraries" },
-  { name: "socket.io", logo: "", category: "tools & libraries" },
+  { name: "socket.io", logo: <Socketio />, category: "tools & libraries" },
   { name: "problem solving", logo: "", category: "tools & libraries" },
-  { name: "Framer Motion", logo: "", category: "tools & libraries" },
-  { name: "Reanimated", logo: "", category: "tools & libraries" },
+  { name: "Framer Motion", logo: <Motion />, category: "tools & libraries" },
+  {
+    name: "Reanimated",
+    logo: <ReanimatedIcon />,
+    category: "tools & libraries",
+  },
   { name: "clsx", logo: "", category: "tools & libraries" },
-  { name: "tailwind merge", logo: "", category: "tools & libraries" },
+  {
+    name: "tailwind merge",
+    logo: <TailwindMergeIcon />,
+    category: "tools & libraries",
+  },
   { name: "next-themes", logo: "", category: "tools & libraries" },
   { name: "axios", logo: "", category: "tools & libraries" },
   { name: "SWR", logo: "", category: "tools & libraries" },
