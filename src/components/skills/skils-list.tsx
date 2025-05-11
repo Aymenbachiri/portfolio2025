@@ -22,6 +22,19 @@ import Postman from "@/lib/icons/postman-icon";
 import { ThunderClientIcon } from "@/lib/icons/thunderclient-icon";
 import Swagger from "@/lib/icons/swagger-icon";
 import { ScalarIcon } from "@/lib/icons/scalar-icon";
+import MongoDB from "@/lib/icons/mongodb-icon";
+import Firebase from "@/lib/icons/firebase-icon";
+import Supabase from "@/lib/icons/supabase-icon";
+import Figma from "@/lib/icons/figma-icon";
+import VisualStudioCode from "@/lib/icons/vscode-icon";
+import Cursor from "@/lib/icons/cursor-icon";
+import Windsurf from "@/lib/icons/windsurf-icon";
+import { AndroidStudioIcon } from "@/lib/icons/androidstudio-icon";
+import Git from "@/lib/icons/git-icon";
+import GitHub from "@/lib/icons/github-icon";
+import NPM from "@/lib/icons/npm-icon";
+import Bun from "@/lib/icons/bun-icon";
+import VisualStudio from "@/lib/icons/visualstudio-icon";
 
 export type Skill = {
   name: string;
@@ -81,21 +94,29 @@ export const skillsData: Skill[] = [
   { name: "Scalar", logo: <ScalarIcon />, category: "backend" },
 
   // Databases
-  { name: "MongoDB", logo: "", category: "databases" },
-  { name: "Firebase", logo: "", category: "databases" },
-  { name: "Supabase", logo: "", category: "databases" },
+  { name: "MongoDB", logo: <MongoDB />, category: "databases" },
+  { name: "Firebase", logo: <Firebase />, category: "databases" },
+  { name: "Supabase", logo: <Supabase />, category: "databases" },
 
   // Tools & Libraries
-  { name: "Figma", logo: "", category: "tools & libraries" },
-  { name: "VSCode", logo: "", category: "tools & libraries" },
-  { name: "Visual Studio", logo: "", category: "tools & libraries" },
-  { name: "Cursor", logo: "", category: "tools & libraries" },
-  { name: "Windsurf", logo: "", category: "tools & libraries" },
-  { name: "Android Studio", logo: "", category: "tools & libraries" },
-  { name: "Git", logo: "", category: "tools & libraries" },
-  { name: "GitHub", logo: "", category: "tools & libraries" },
-  { name: "npm", logo: "", category: "tools & libraries" },
-  { name: "bun", logo: "", category: "tools & libraries" },
+  { name: "Figma", logo: <Figma />, category: "tools & libraries" },
+  { name: "VSCode", logo: <VisualStudioCode />, category: "tools & libraries" },
+  {
+    name: "Visual Studio",
+    logo: <VisualStudio />,
+    category: "tools & libraries",
+  },
+  { name: "Cursor", logo: <Cursor />, category: "tools & libraries" },
+  { name: "Windsurf", logo: <Windsurf />, category: "tools & libraries" },
+  {
+    name: "Android Studio",
+    logo: <AndroidStudioIcon />,
+    category: "tools & libraries",
+  },
+  { name: "Git", logo: <Git />, category: "tools & libraries" },
+  { name: "GitHub", logo: <GitHub />, category: "tools & libraries" },
+  { name: "npm", logo: <NPM />, category: "tools & libraries" },
+  { name: "bun", logo: <Bun />, category: "tools & libraries" },
   { name: "Docker", logo: "", category: "tools & libraries" },
   { name: "prisma", logo: "", category: "tools & libraries" },
   { name: "firebase admin", logo: "", category: "tools & libraries" },
