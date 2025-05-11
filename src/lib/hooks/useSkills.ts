@@ -2,67 +2,97 @@ import { type Category } from "@/components/skills/category";
 import { type Skill, skillsData } from "@/components/skills/skils-list";
 import { useEffect, useState } from "react";
 
-export const SKILLS_PER_PAGE = 10;
-
 type useSkillsReturn = {
-  searchTerm: string;
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  searchQuery: string;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
   selectedCategory: Category["id"];
   setSelectedCategory: React.Dispatch<React.SetStateAction<Category["id"]>>;
   filteredSkills: Skill[];
   currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
   totalPages: number;
-  goToPage: (pageNumber: number) => void;
-  currentSkills: Skill[];
-  indexOfFirstSkill: number;
-  indexOfLastSkill: number;
+  paginatedSkills: Skill[];
+  getPageNumbers: () => (string | number)[];
 };
 
+export const itemsPerPage = 10;
+
 export function useSkills(): useSkillsReturn {
-  const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedCategory, setSelectedCategory] =
     useState<Category["id"]>("all");
-  const [filteredSkills, setFilteredSkills] = useState<Skill[]>(skillsData);
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number>(1);
+  const [filteredSkills, setFilteredSkills] = useState<Skill[]>(skillsData);
 
   useEffect(() => {
-    const filtered = skillsData.filter((skill) => {
-      const matchesSearch = skill.name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-      const matchesCategory =
-        selectedCategory === "all" || skill.category === selectedCategory;
-      return matchesSearch && matchesCategory;
-    });
+    let result = skillsData;
 
-    setFilteredSkills(filtered);
-    setTotalPages(Math.ceil(filtered.length / SKILLS_PER_PAGE));
+    if (selectedCategory !== "all") {
+      result = result.filter((skill) => skill.category === selectedCategory);
+    }
+
+    if (searchQuery.trim() !== "") {
+      result = result.filter((skill) =>
+        skill.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
+    }
+
+    setFilteredSkills(result);
     setCurrentPage(1);
-  }, [searchTerm, selectedCategory]);
+  }, [selectedCategory, searchQuery]);
 
-  const indexOfLastSkill = currentPage * SKILLS_PER_PAGE;
-  const indexOfFirstSkill = indexOfLastSkill - SKILLS_PER_PAGE;
-  const currentSkills = filteredSkills.slice(
-    indexOfFirstSkill,
-    indexOfLastSkill,
+  const totalPages = Math.ceil(filteredSkills.length / itemsPerPage);
+  const paginatedSkills = filteredSkills.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage,
   );
 
-  const goToPage = (pageNumber: number): void => {
-    setCurrentPage(Math.max(1, Math.min(pageNumber, totalPages)));
+  const getPageNumbers: () => (string | number)[] = () => {
+    const pages = [];
+    const maxVisiblePages = 5;
+
+    if (totalPages <= maxVisiblePages) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      pages.push(1);
+
+      let start = Math.max(2, currentPage - Math.floor(maxVisiblePages / 2));
+      const end = Math.min(totalPages - 1, start + maxVisiblePages - 3);
+
+      if (end === totalPages - 1) {
+        start = Math.max(2, end - (maxVisiblePages - 3));
+      }
+
+      if (start > 2) {
+        pages.push("...");
+      }
+
+      for (let i = start; i <= end; i++) {
+        pages.push(i);
+      }
+
+      if (end < totalPages - 1) {
+        pages.push("...");
+      }
+
+      pages.push(totalPages);
+    }
+
+    return pages;
   };
 
   return {
-    searchTerm,
-    setSearchTerm,
+    searchQuery,
+    setSearchQuery,
     selectedCategory,
     setSelectedCategory,
-    filteredSkills,
     currentPage,
-    totalPages,
-    goToPage,
-    currentSkills,
-    indexOfFirstSkill,
-    indexOfLastSkill,
+    setCurrentPage,
+    totalPages: totalPages,
+    paginatedSkills,
+    getPageNumbers,
+    filteredSkills,
   };
 }

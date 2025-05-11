@@ -1,163 +1,169 @@
 "use client";
 
 import { type JSX } from "react";
-import { motion } from "motion/react";
-import { Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils/utils";
-import { SKILLS_PER_PAGE, useSkills } from "@/lib/hooks/useSkills";
 import { categories } from "./skills/category";
+import { itemsPerPage, useSkills } from "@/lib/hooks/useSkills";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 export function Skills(): JSX.Element {
   const {
-    searchTerm,
-    setSearchTerm,
+    searchQuery,
+    setSearchQuery,
     selectedCategory,
     setSelectedCategory,
-    filteredSkills,
+    paginatedSkills,
     currentPage,
     totalPages,
-    goToPage,
-    currentSkills,
-    indexOfFirstSkill,
-    indexOfLastSkill,
+    getPageNumbers,
+    filteredSkills,
+    setCurrentPage,
   } = useSkills();
 
   return (
-    <section id="skills" className="py-16">
-      <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-16 text-center"
-        >
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">My Skills</h2>
-          <div className="mx-auto h-1 w-20"></div>
-        </motion.div>
-
-        <div className="mx-auto mb-10">
-          <div className="relative mx-auto max-w-xl">
-            <Search className="text-muted-foreground absolute top-1/2 left-3 -translate-y-1/2 transform" />
-            <input
-              type="text"
-              placeholder="Search skills..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="border-border focus:ring-primary w-full rounded-lg border py-3 pr-4 pl-10 focus:ring-2 focus:outline-none"
-            />
-          </div>
-
-          <div className="mt-4 flex flex-wrap justify-center gap-2">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={cn(
-                  "cursor-pointer rounded-full px-4 py-2 text-sm transition-colors",
-                  selectedCategory === category.id
-                    ? "text-gray-400"
-                    : "text-black dark:text-white",
-                )}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
+    <section id="skills" className="mx-auto w-full max-w-6xl py-12">
+      <h2 className="mb-8 text-center text-3xl font-bold">My Skills</h2>
+      <div className="mb-8 flex flex-col items-center justify-between gap-4 md:flex-row">
+        <div className="flex flex-wrap justify-center gap-2">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setSelectedCategory(category.id)}
+              className={cn(
+                "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
+                selectedCategory === category.id
+                  ? "bg-blue-600 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200",
+              )}
+            >
+              {category.name}
+            </button>
+          ))}
         </div>
-
+        <div className="relative w-full md:w-64">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search skills..."
+            className="w-full rounded-full border border-gray-300 py-2 pr-10 pl-10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          />
+          <Search className="absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="absolute top-1/2 right-3 -translate-y-1/2 transform text-gray-400 hover:text-gray-600"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          )}
+        </div>
+      </div>
+      <AnimatePresence mode="wait">
         <motion.div
-          className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, staggerChildren: 0.1 }}
-          viewport={{ once: true }}
+          key={`${selectedCategory}-${searchQuery}-${currentPage}`}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={containerVariants}
+          className="mb-8 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
         >
-          {currentSkills.length > 0 ? (
-            currentSkills.map((skill, index) => (
+          {paginatedSkills.length > 0 ? (
+            paginatedSkills.map((skill) => (
               <motion.div
                 key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="flex flex-col items-center rounded-lg p-6 text-center shadow-md dark:shadow-md dark:shadow-gray-100"
+                variants={itemVariants}
+                className="flex flex-col items-center justify-center rounded-lg p-4 shadow-md transition-shadow duration-300 hover:shadow-lg dark:shadow-md dark:shadow-gray-300"
               >
                 <div
                   className={cn(
-                    "mb-3 text-4xl",
+                    "mb-3 flex items-center justify-center text-4xl",
                     skill.name === "Expo"
                       ? "dark:brightness-200 dark:invert"
-                      : "",
-                    skill.name === "ShadcnUi"
-                      ? "text-black dark:text-white"
                       : "",
                   )}
                 >
                   {skill.logo}
                 </div>
-                <h3 className="font-medium">{skill.name}</h3>
+                <h3 className="text-center font-medium text-gray-800 dark:text-gray-200">
+                  {skill.name}
+                </h3>
               </motion.div>
             ))
           ) : (
-            <div className="text-muted-foreground col-span-full py-10 text-center">
-              No skills found matching your search.
-            </div>
+            <motion.div
+              variants={itemVariants}
+              className="col-span-full py-10 text-center text-gray-500"
+            >
+              No skills found. Try changing your search or category.
+            </motion.div>
           )}
         </motion.div>
-
-        {filteredSkills.length > SKILLS_PER_PAGE && (
-          <div className="mt-12 flex items-center justify-center space-x-2">
-            <button
-              onClick={() => goToPage(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="cursor-pointer rounded-md p-2 transition-colors disabled:opacity-50"
-              aria-label="Previous page"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-
-            <div className="flex space-x-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                (page) => (
-                  <button
-                    key={page}
-                    onClick={() => goToPage(page)}
-                    aria-current={currentPage === page ? "page" : undefined}
-                    className={cn(
-                      "flex h-8 w-8 cursor-pointer items-center justify-center rounded-md text-sm transition-colors",
-                      currentPage === page
-                        ? "bg-primary text-primary-foreground font-semibold shadow dark:bg-gray-300 dark:text-gray-800"
-                        : "text-secondary-foreground hover:bg-muted bg-transparent",
-                    )}
-                  >
-                    {page}
-                  </button>
-                ),
-              )}
-            </div>
-
-            <button
-              onClick={() => goToPage(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="text-secondary-foreground cursor-pointer rounded-md p-2 transition-colors disabled:opacity-50"
-              aria-label="Next page"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
-        )}
-
-        <div className="mt-4 text-center text-sm">
-          {filteredSkills.length > 0 && (
-            <p>
-              Showing {indexOfFirstSkill + 1}-
-              {Math.min(indexOfLastSkill, filteredSkills.length)} of{" "}
-              {filteredSkills.length} skills
-            </p>
+      </AnimatePresence>
+      {totalPages > 1 && (
+        <div className="mt-8 flex items-center justify-center gap-2">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="rounded-md bg-gray-100 px-3 py-1 text-black hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50 dark:text-black"
+          >
+            Prev
+          </button>
+          {getPageNumbers().map((page, index) =>
+            page === "..." ? (
+              <span key={`ellipsis-${index}`} className="px-3 py-1">
+                ...
+              </span>
+            ) : (
+              <button
+                key={`page-${page}`}
+                onClick={() => setCurrentPage(Number(page))}
+                className={cn(
+                  "flex h-8 w-8 items-center justify-center rounded-full",
+                  currentPage === page
+                    ? "bg-blue-600 font-medium"
+                    : "bg-gray-100 text-black hover:bg-gray-200",
+                )}
+              >
+                {page}
+              </button>
+            ),
           )}
+          <button
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
+            disabled={currentPage === totalPages}
+            className="rounded-md bg-gray-100 px-3 py-1 text-black hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Next
+          </button>
         </div>
+      )}
+      <div className="mt-4 text-center text-sm text-gray-500">
+        Showing{" "}
+        {paginatedSkills.length > 0 ? (currentPage - 1) * itemsPerPage + 1 : 0}{" "}
+        - {Math.min(currentPage * itemsPerPage, filteredSkills.length)} of{" "}
+        {filteredSkills.length} skills
       </div>
     </section>
   );
