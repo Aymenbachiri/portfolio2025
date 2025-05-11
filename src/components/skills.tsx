@@ -125,11 +125,12 @@ export function Skills(): JSX.Element {
                   <button
                     key={page}
                     onClick={() => goToPage(page)}
+                    aria-current={currentPage === page ? "page" : undefined}
                     className={cn(
-                      "h-8 w-8 cursor-pointer rounded-md text-sm transition-colors",
+                      "flex h-8 w-8 cursor-pointer items-center justify-center rounded-md text-sm transition-colors",
                       currentPage === page
-                        ? "text-primary-foreground"
-                        : "text-secondary-foreground",
+                        ? "bg-primary text-primary-foreground font-semibold shadow"
+                        : "text-secondary-foreground hover:bg-muted bg-transparent",
                     )}
                   >
                     {page}

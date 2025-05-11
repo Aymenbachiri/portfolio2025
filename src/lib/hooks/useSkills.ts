@@ -20,9 +20,8 @@ type useSkillsReturn = {
 
 export function useSkills(): useSkillsReturn {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [selectedCategory, setSelectedCategory] = useState<
-    "all" | "frontend" | "backend" | "database" | "tools" | "mobile"
-  >("all");
+  const [selectedCategory, setSelectedCategory] =
+    useState<Category["id"]>("all");
   const [filteredSkills, setFilteredSkills] = useState<Skill[]>(skillsData);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
