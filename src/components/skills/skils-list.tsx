@@ -16,6 +16,12 @@ import ChakraUI from "@/lib/icons/chakraui-icon";
 import Nodejs from "@/lib/icons/node-icon";
 import Expressjs from "@/lib/icons/express-icon";
 import { DotnetcoreIcon } from "@/lib/icons/dotnetcore-icon";
+import { MongooseIcon } from "@/lib/icons/mongoose-icon";
+import { EntityFrameWorkIcon } from "@/lib/icons/entity-icon";
+import Postman from "@/lib/icons/postman-icon";
+import { ThunderClientIcon } from "@/lib/icons/thunderclient-icon";
+import Swagger from "@/lib/icons/swagger-icon";
+import { ScalarIcon } from "@/lib/icons/scalar-icon";
 
 export type Skill = {
   name: string;
@@ -63,12 +69,16 @@ export const skillsData: Skill[] = [
   { name: "Node.js", logo: <Nodejs />, category: "backend" },
   { name: "Express.js", logo: <Expressjs />, category: "backend" },
   { name: "ASP.NET Core", logo: <DotnetcoreIcon />, category: "backend" },
-  { name: "mongoose", logo: "", category: "backend" },
-  { name: "Entity Framework", logo: "", category: "backend" },
-  { name: "Postman", logo: "", category: "backend" },
-  { name: "Thunder Client", logo: "", category: "backend" },
-  { name: "Swagger", logo: "", category: "backend" },
-  { name: "Scalar", logo: "", category: "backend" },
+  { name: "mongoose", logo: <MongooseIcon />, category: "backend" },
+  {
+    name: "Entity Framework",
+    logo: <EntityFrameWorkIcon />,
+    category: "backend",
+  },
+  { name: "Postman", logo: <Postman />, category: "backend" },
+  { name: "Thunder Client", logo: <ThunderClientIcon />, category: "backend" },
+  { name: "Swagger", logo: <Swagger />, category: "backend" },
+  { name: "Scalar", logo: <ScalarIcon />, category: "backend" },
 
   // Databases
   { name: "MongoDB", logo: "", category: "databases" },
