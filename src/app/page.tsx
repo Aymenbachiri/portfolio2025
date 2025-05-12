@@ -1,5 +1,7 @@
 import { About } from "@/components/about";
 import { Banner } from "@/components/banner";
+import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
@@ -13,8 +15,8 @@ export default function Home(): JSX.Element {
       <About />
       <Skills />
       <Projects />
-      {/* <ContactSection /> */}
-      {/* <Footer /> */}
+      <Contact />
+      <Footer />
     </main>
   );
 }
