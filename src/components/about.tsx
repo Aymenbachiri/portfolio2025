@@ -16,7 +16,7 @@ export function About(): JSX.Element {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">About Me</h2>
-          <div className="bg-primary mx-auto h-1 w-20"></div>
+          <div className="mx-auto mb-10 h-1 w-20 bg-gray-500" />
         </motion.div>
 
         <div className="grid items-center gap-12 md:grid-cols-2">

@@ -42,6 +42,7 @@ export function Skills(): JSX.Element {
   return (
     <section id="skills" className="mx-auto w-full max-w-6xl py-12">
       <h2 className="mb-8 text-center text-3xl font-bold">My Skills</h2>
+      <div className="mx-auto mb-10 h-1 w-20 bg-gray-500" />
       <div className="mb-8 flex flex-col items-center justify-between gap-4 md:flex-row">
         <div className="flex flex-wrap justify-center gap-2">
           {categories.map((category) => (

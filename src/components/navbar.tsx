@@ -48,7 +48,7 @@ export function Navbar(): JSX.Element {
       animate="visible"
       variants={navbarVariants}
     >
-      <div className="container-custom flex items-center justify-between px-4 py-4 md:px-8">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 md:px-8">
         <motion.div
           className="text-primary text-2xl font-bold"
           variants={itemVariants}
@@ -92,7 +92,7 @@ export function Navbar(): JSX.Element {
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="container-custom px-4 py-4">
+          <div className="bg-[#292a2c] px-4 py-4">
             {navItems.map((item) => (
               <Link
                 key={item.name}
