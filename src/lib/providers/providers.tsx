@@ -1,6 +1,7 @@
 import type { JSX } from "react";
 import { ThemeProvider } from "./theme-provider";
 import { LenisProvider } from "./lenis-provider";
+import { Toaster } from "sonner";
 
 export function Providers({
   children,
@@ -10,6 +11,7 @@ export function Providers({
   return (
     <ThemeProvider>
       <LenisProvider />
+      <Toaster richColors position="top-right" />
       {children}
     </ThemeProvider>
   );
