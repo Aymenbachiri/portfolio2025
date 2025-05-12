@@ -66,6 +66,7 @@ import AmazonWebServices from "@/lib/icons/s3-icon";
 import { RecaptchaIcon } from "@/lib/icons/recaptcha-icon";
 import { ReactNativePaperIcon } from "@/lib/icons/reactnativepaper-icon";
 import { MapboxIcon } from "@/lib/icons/mapbox-icon";
+import { NoLogoIcon } from "@/lib/icons/nologo-icon";
 
 export type Skill = {
   name: string;
@@ -151,10 +152,22 @@ export const skillsData: Skill[] = [
   { name: "Docker", logo: <Docker />, category: "tools & libraries" },
   { name: "prisma", logo: <Prisma />, category: "tools & libraries" },
   { name: "firebase admin", logo: <Firebase />, category: "tools & libraries" },
-  { name: "RestAPI", logo: "", category: "tools & libraries" },
+  {
+    name: "RestAPI",
+    logo: <NoLogoIcon name="RestAPI" />,
+    category: "tools & libraries",
+  },
   { name: "jwt", logo: <JWT />, category: "tools & libraries" },
-  { name: "bcryptjs", logo: "", category: "tools & libraries" },
-  { name: "bcrypt ts", logo: "", category: "tools & libraries" },
+  {
+    name: "bcryptjs",
+    logo: <NoLogoIcon name="bcryptjs" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "bcrypt ts",
+    logo: <NoLogoIcon name="bcryptts" />,
+    category: "tools & libraries",
+  },
   {
     name: "NextAuth (auth.js)",
     logo: <NextAuthIcon />,
@@ -169,17 +182,45 @@ export const skillsData: Skill[] = [
     logo: <ReactHookFormIcon />,
     category: "tools & libraries",
   },
-  { name: "Formik", logo: "", category: "tools & libraries" },
-  { name: "Yup", logo: "", category: "tools & libraries" },
+  {
+    name: "Formik",
+    logo: <NoLogoIcon name="Formik" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "Yup",
+    logo: <NoLogoIcon name="Yup" />,
+    category: "tools & libraries",
+  },
   { name: "zod", logo: <Zod />, category: "tools & libraries" },
   { name: "Redux Toolkit", logo: <Redux />, category: "tools & libraries" },
   { name: "Redux Persist", logo: <Redux />, category: "tools & libraries" },
   { name: "jotai", logo: <JotaiICon />, category: "tools & libraries" },
-  { name: "Context API", logo: "", category: "tools & libraries" },
-  { name: "react-helmet", logo: "", category: "tools & libraries" },
-  { name: "helmet.js", logo: "", category: "tools & libraries" },
-  { name: "seo", logo: "", category: "tools & libraries" },
-  { name: "next-seo", logo: "", category: "tools & libraries" },
+  {
+    name: "Context API",
+    logo: <NoLogoIcon name="Context API" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "react-helmet",
+    logo: <NoLogoIcon name="react-helmet" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "helmet.js",
+    logo: <NoLogoIcon name="helmet.js" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "seo",
+    logo: <NoLogoIcon name="seo" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "next-seo",
+    logo: <NoLogoIcon name="next-seo" />,
+    category: "tools & libraries",
+  },
   { name: "next-intl", logo: <NextIntlIcon />, category: "tools & libraries" },
   {
     name: "expo localization",
@@ -195,13 +236,21 @@ export const skillsData: Skill[] = [
     logo: <ReanimatedIcon />,
     category: "tools & libraries",
   },
-  { name: "clsx", logo: "", category: "tools & libraries" },
+  {
+    name: "clsx",
+    logo: <NoLogoIcon name="clsx" />,
+    category: "tools & libraries",
+  },
   {
     name: "tailwind merge",
     logo: <TailwindMergeIcon />,
     category: "tools & libraries",
   },
-  { name: "next-themes", logo: "", category: "tools & libraries" },
+  {
+    name: "next-themes",
+    logo: <NoLogoIcon name="next-themes" />,
+    category: "tools & libraries",
+  },
   { name: "axios", logo: <AxisoIcon />, category: "tools & libraries" },
   { name: "SWR", logo: <SWR />, category: "tools & libraries" },
   { name: "lenis scroll", logo: <LenisIcon />, category: "tools & libraries" },
@@ -210,16 +259,32 @@ export const skillsData: Skill[] = [
     logo: <ReactHotToastIcon />,
     category: "tools & libraries",
   },
-  { name: "sonner", logo: "", category: "tools & libraries" },
-  { name: "react-toastify", logo: "", category: "tools & libraries" },
+  {
+    name: "sonner",
+    logo: <NoLogoIcon name="sonner" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "react-toastify",
+    logo: <NoLogoIcon name="react-toastify" />,
+    category: "tools & libraries",
+  },
   {
     name: "react-native-toast-message",
     logo: "",
     category: "tools & libraries",
   },
   { name: "resend", logo: <Resend />, category: "tools & libraries" },
-  { name: "nextjs-toploader", logo: "", category: "tools & libraries" },
-  { name: "Expo router", logo: "", category: "tools & libraries" },
+  {
+    name: "nextjs-toploader",
+    logo: <NoLogoIcon name="nextjs-toploader" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "Expo router",
+    logo: <NoLogoIcon name="Expo router" />,
+    category: "tools & libraries",
+  },
   {
     name: "react navigation",
     logo: <ReactNavigationIcon />,
@@ -241,12 +306,32 @@ export const skillsData: Skill[] = [
     logo: <GorhomBottomSheetIcon />,
     category: "tools & libraries",
   },
-  { name: "react audio visualize", logo: "", category: "tools & libraries" },
-  { name: "react native swiper", logo: "", category: "tools & libraries" },
-  { name: "react native calendar", logo: "", category: "tools & libraries" },
-  { name: "Edgestore", logo: "", category: "tools & libraries" },
+  {
+    name: "react audio visualize",
+    logo: "",
+    category: "tools & libraries",
+  },
+  {
+    name: "react native swiper",
+    logo: "",
+    category: "tools & libraries",
+  },
+  {
+    name: "react native calendar",
+    logo: "",
+    category: "tools & libraries",
+  },
+  {
+    name: "Edgestore",
+    logo: <NoLogoIcon name="Edgestore" />,
+    category: "tools & libraries",
+  },
   { name: "s3", logo: <AmazonWebServices />, category: "tools & libraries" },
-  { name: "react-select", logo: "", category: "tools & libraries" },
+  {
+    name: "react-select",
+    logo: <NoLogoIcon name="react-select" />,
+    category: "tools & libraries",
+  },
   {
     name: "react google recaptcha",
     logo: <RecaptchaIcon />,
@@ -257,8 +342,16 @@ export const skillsData: Skill[] = [
     logo: <ReactNativePaperIcon />,
     category: "tools & libraries",
   },
-  { name: "react native picker", logo: "", category: "tools & libraries" },
-  { name: "expo web browser", logo: "", category: "tools & libraries" },
+  {
+    name: "react native picker",
+    logo: "",
+    category: "tools & libraries",
+  },
+  {
+    name: "expo web browser",
+    logo: "",
+    category: "tools & libraries",
+  },
   {
     name: "react native ui datepicker",
     logo: "",
@@ -269,16 +362,40 @@ export const skillsData: Skill[] = [
     logo: "",
     category: "tools & libraries",
   },
-  { name: "expo secure storage", logo: "", category: "tools & libraries" },
+  {
+    name: "expo secure storage",
+    logo: "",
+    category: "tools & libraries",
+  },
   { name: "mapbox", logo: <MapboxIcon />, category: "tools & libraries" },
-  { name: "react day picker", logo: "", category: "tools & libraries" },
-  { name: "nanoid", logo: "", category: "tools & libraries" },
-  { name: "uuid", logo: "", category: "tools & libraries" },
-  { name: "react native collapsible", logo: "", category: "tools & libraries" },
+  {
+    name: "react day picker",
+    logo: <NoLogoIcon name="react day picker" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "nanoid",
+    logo: <NoLogoIcon name="nanoid" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "uuid",
+    logo: <NoLogoIcon name="uuid" />,
+    category: "tools & libraries",
+  },
+  {
+    name: "react native collapsible",
+    logo: "",
+    category: "tools & libraries",
+  },
   {
     name: "react-native-community-netinfo",
     logo: "",
     category: "tools & libraries",
   },
-  { name: "expo-av", logo: "", category: "tools & libraries" },
+  {
+    name: "expo-av",
+    logo: <NoLogoIcon name="expo-av" />,
+    category: "tools & libraries",
+  },
 ];
