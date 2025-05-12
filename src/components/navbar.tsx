@@ -92,7 +92,7 @@ export function Navbar(): JSX.Element {
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="bg-[#292a2c] px-4 py-4">
+          <div className="px-4 py-4 dark:bg-[#292a2c]">
             {navItems.map((item) => (
               <Link
                 key={item.name}

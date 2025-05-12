@@ -144,7 +144,7 @@ export function Contact(): JSX.Element {
             viewport={{ once: true }}
           >
             <h3 className="mb-6 text-2xl font-bold">Send Me a Message</h3>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <form className="space-y-6">
               <div>
                 <label htmlFor="name" className="mb-2 block font-medium">
                   Name
@@ -223,7 +223,6 @@ export function Contact(): JSX.Element {
                 )}
               </div>
               <button
-                type="submit"
                 disabled={isSubmitting}
                 className="text-primary-foreground hover:bg-primary/90 flex w-full items-center justify-center rounded-md px-8 py-3 transition-colors disabled:opacity-70"
               >

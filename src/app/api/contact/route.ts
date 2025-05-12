@@ -20,10 +20,7 @@ export async function POST(request: NextRequest) {
       apiKey: process.env.MAILERSEND_API_KEY || "",
     });
 
-    const sentFrom = new Sender(
-      "noreply@yourdomain.com",
-      "Portfolio Contact Form",
-    );
+    const sentFrom = new Sender("noreply@aymen.com", "Portfolio Contact Form");
     const recipients = [
       new Recipient("aymen.bachiri99@gmail.com", "Aymen Bachiri"),
     ];
@@ -31,6 +28,7 @@ export async function POST(request: NextRequest) {
     const emailParams = new EmailParams()
       .setFrom(sentFrom)
       .setTo(recipients)
+      .setReplyTo(new Sender(email, name))
       .setSubject(`Portfolio Contact: ${subject}`).setHtml(`
         <h2>New contact form submission</h2>
         <p><strong>Name:</strong> ${name}</p>
@@ -49,10 +47,11 @@ export async function POST(request: NextRequest) {
     await mailerSend.email.send(emailParams);
 
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Error sending email:", error);
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : JSON.stringify(err);
+    console.error("🛑 Error sending email:", err);
     return NextResponse.json(
-      { error: `Failed to send email ${error}` },
+      { error: `Failed to send email: ${message}` },
       { status: 500 },
     );
   }
