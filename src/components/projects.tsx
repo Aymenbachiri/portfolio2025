@@ -1,122 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import type { JSX } from "react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import { Github, ExternalLink } from "lucide-react";
+import { categories } from "./projects/projects-categories";
+import { useProjects } from "@/lib/hooks/useProjects";
 
-// Define the projects data
-const projectsData = [
-  {
-    id: "project1",
-    title: "E-commerce Platform",
-    description:
-      "A full-featured e-commerce platform with product listings, cart, and checkout.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["Next.js", "Tailwind CSS", "Prisma", "PostgreSQL"],
-    category: "nextjs",
-    repoUrl: "#",
-    demoUrl: "#",
-    slug: "ecommerce-platform",
-  },
-  {
-    id: "project2",
-    title: "Blog CMS",
-    description: "A content management system for blogs with markdown support.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["Next.js", "MDX", "Tailwind CSS", "Vercel"],
-    category: "nextjs",
-    repoUrl: "#",
-    demoUrl: "#",
-    slug: "blog-cms",
-  },
-  {
-    id: "project3",
-    title: "Task Management API",
-    description:
-      "RESTful API for task management with authentication and authorization.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["Express.js", "MongoDB", "JWT", "Docker"],
-    category: "expressjs",
-    repoUrl: "#",
-    demoUrl: "#",
-    slug: "task-management-api",
-  },
-  {
-    id: "project4",
-    title: "Real-time Chat",
-    description: "Real-time chat application with private and group messaging.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["Express.js", "Socket.io", "React", "Redis"],
-    category: "expressjs",
-    repoUrl: "#",
-    demoUrl: "#",
-    slug: "real-time-chat",
-  },
-  {
-    id: "project5",
-    title: "Fitness Tracker App",
-    description: "Mobile app for tracking workouts, nutrition, and progress.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["React Native", "Expo", "Firebase", "Redux"],
-    category: "reactnative",
-    repoUrl: "#",
-    demoUrl: "#",
-    slug: "fitness-tracker-app",
-  },
-  {
-    id: "project6",
-    title: "Travel Companion",
-    description:
-      "Mobile app for planning trips, finding attractions, and tracking expenses.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["React Native", "Expo", "Google Maps API", "AsyncStorage"],
-    category: "reactnative",
-    repoUrl: "#",
-    demoUrl: "#",
-    slug: "travel-companion",
-  },
-  {
-    id: "project7",
-    title: "Inventory Management System",
-    description:
-      "Web application for managing inventory, orders, and suppliers.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["ASP.NET Core", "Entity Framework", "SQL Server", "Blazor"],
-    category: "aspnetcore",
-    repoUrl: "#",
-    demoUrl: "#",
-    slug: "inventory-management-system",
-  },
-  {
-    id: "project8",
-    title: "HR Portal",
-    description:
-      "Employee management portal with time tracking and performance reviews.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["ASP.NET Core", "Identity", "SQL Server", "React"],
-    category: "aspnetcore",
-    repoUrl: "#",
-    demoUrl: "#",
-    slug: "hr-portal",
-  },
-];
-
-// Define the categories
-const categories = [
-  { id: "nextjs", name: "Next.js" },
-  { id: "expressjs", name: "Express.js" },
-  { id: "reactnative", name: "React Native (Expo)" },
-  { id: "aspnetcore", name: "ASP.NET Core" },
-];
-
-export default function ProjectsSection() {
-  const [activeCategory, setActiveCategory] = useState("nextjs");
-
-  const filteredProjects = projectsData.filter(
-    (project) => project.category === activeCategory,
-  );
+export function Projects(): JSX.Element {
+  const { filteredProjects, activeCategory, setActiveCategory } = useProjects();
 
   return (
     <section id="projects" className="mx-auto w-full max-w-6xl py-12">
@@ -129,7 +22,7 @@ export default function ProjectsSection() {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">My Projects</h2>
-          <div className="mx-auto h-1 w-20 bg-gray-500"></div>
+          <div className="mx-auto h-1 w-20 bg-gray-500" />
         </motion.div>
 
         <div className="mb-12 flex flex-wrap justify-center gap-2">
@@ -147,9 +40,8 @@ export default function ProjectsSection() {
             </button>
           ))}
         </div>
-
         <motion.div
-          className="grid gap-8 md:grid-cols-2"
+          className="grid auto-rows-fr gap-8 md:grid-cols-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -162,7 +54,7 @@ export default function ProjectsSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="m-4 overflow-hidden rounded-lg shadow-md dark:shadow-md dark:shadow-gray-100"
+              className="m-4 flex h-full flex-col overflow-hidden rounded-lg shadow-md dark:shadow-gray-100"
             >
               <div className="relative h-60 overflow-hidden">
                 <Image
@@ -173,9 +65,9 @@ export default function ProjectsSection() {
                   className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
-              <div className="p-6">
+              <div className="flex flex-grow flex-col p-6">
                 <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="mb-4 flex-grow text-gray-800 dark:text-gray-400">
                   {project.description}
                 </p>
 
@@ -189,8 +81,7 @@ export default function ProjectsSection() {
                     </span>
                   ))}
                 </div>
-
-                <div className="flex justify-between">
+                <div className="mt-auto flex justify-between">
                   <Link
                     href={`/projects/${project.slug}`}
                     className="text-primary hover:underline"

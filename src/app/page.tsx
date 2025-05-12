@@ -1,7 +1,7 @@
 import { About } from "@/components/about";
 import { Banner } from "@/components/banner";
 import { Navbar } from "@/components/navbar";
-import ProjectsSection from "@/components/projects";
+import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
 import type { JSX } from "react";
 
@@ -12,8 +12,7 @@ export default function Home(): JSX.Element {
       <Banner />
       <About />
       <Skills />
-
-      <ProjectsSection />
+      <Projects />
       {/* <ContactSection /> */}
       {/* <Footer /> */}
     </main>
